@@ -1,0 +1,28 @@
+
+
+/// The datatype of components in the attribute.
+/// gltf_detailedDescription: The datatype of components in the attribute.  All valid values correspond to WebGL enums.  The corresponding typed arrays are `Int8Array`, `Uint8Array`, `Int16Array`, `Uint16Array`, `Uint32Array`, and `Float32Array`, respectively.  5125 (UNSIGNED_INT) is only allowed when the accessor contains indices, i.e., the accessor is only referenced by `primitive.indices`.
+/// gltf_webgl: `vertexAttribPointer()` type parameter
+enum ComponentType: int {
+	BYTE = 5120,
+	UNSIGNED_BYTE = 5121,
+	SHORT = 5122,
+	UNSIGNED_SHORT = 5123,
+	UNSIGNED_INT = 5125,
+	FLOAT = 5126,
+	HALF,
+}
+
+/// "description": "Specifies if the attribute is a scalar, vector, or matrix."
+enum AccessorType: short {
+	SCALAR,
+	VEC2,
+	VEC3,
+	VEC4,
+	MAT2,
+	MAT3,
+	MAT4,
+	_QUAT,  // customization: quaternion type
+	_DQUAT, // customization: dual quaternion type
+	__UNSET,
+}
