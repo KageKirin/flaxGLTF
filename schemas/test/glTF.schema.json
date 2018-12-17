@@ -1,0 +1,64 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "title": "glTF-test",
+    "type": "object",
+    "description": "The root object for a glTF asset.",
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
+    "properties": {
+        "extensionsUsed": {
+            "type": "array",
+            "description": "Names of glTF extensions used somewhere in this asset.",
+            "items": {
+                "type": "string"
+            },
+            "uniqueItems": true,
+            "minItems": 1
+        },
+        "extensionsRequired": {
+            "type": "array",
+            "description": "Names of glTF extensions required to properly load this asset.",
+            "items": {
+                "type": "string"
+            },
+            "uniqueItems": true,
+            "minItems": 1
+        },
+        "asset": {
+            "allOf": [ { "$ref": "asset.schema.json" } ],
+            "description": "Metadata about the glTF asset."
+        },
+        "accessors": {
+            "type": "array",
+            "description": "An array of accessors.",
+            "items": {
+                "$ref": "accessor.schema.json"
+            },
+            "minItems": 1,
+            "gltf_detailedDescription": "An array of accessors.  An accessor is a typed view into a bufferView."
+        },
+        "buffers": {
+            "type": "array",
+            "description": "An array of buffers.",
+            "items": {
+                "$ref": "buffer.schema.json"
+            },
+            "minItems": 1,
+            "gltf_detailedDescription": "An array of buffers.  A buffer points to binary geometry, animation, or skins."
+        },
+        "bufferViews": {
+            "type": "array",
+            "description": "An array of bufferViews.",
+            "items": {
+                "$ref": "bufferView.schema.json"
+            },
+            "minItems": 1,
+            "gltf_detailedDescription": "An array of bufferViews.  A bufferView is a view into a buffer generally representing a subset of the buffer."
+        },
+        "extensions": { },
+        "extras": { }
+    },
+    "dependencies": {
+        "scene": [ "scenes" ]
+    },
+    "required": [ "asset" ]
+}
